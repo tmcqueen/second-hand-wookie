@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/about', ['as' => 'about', 'uses' => 'HomeController@about']);
+Route::get('/contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
+Route::get('/events', ['as' => 'events', 'uses' => 'HomeController@events']);
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +28,11 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('@{user}', ['uses' => 'PublicProfileController@index']);
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::resource('/settings', 'SettingsController');
 });

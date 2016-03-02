@@ -52,8 +52,8 @@ return [
             'prefix'   => '',
         ],
 
-        'sqlite' => [
-            'driver'   => 'sqlite_testing',
+        'sqlite_testing' => [
+            'driver'   => 'sqlite',
             'database' => ':memory:',
             'prefix'   => '',
         ],
