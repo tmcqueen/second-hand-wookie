@@ -29,7 +29,15 @@ Route::get('/events', ['as' => 'events', 'uses' => 'HomeController@events']);
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('@{user}', ['uses' => 'PublicProfileController@index']);
+    Route::resource('/inventory', 'InventoryController', ['parameters' => [
+        'inventory' => 'asset',
+    ]]);
+    Route::resource('/donate', 'DonationController');
 });
+
+// Route::get('/inventory', ['as' => 'inventory', 'uses' => 'InventoryController@index']);
+// Route::get('/inventory/{asset}', ['as' => 'asset', 'uses' => 'InventoryController@show']);
+
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();

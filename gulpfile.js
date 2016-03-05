@@ -23,7 +23,7 @@ elixir(function(mix) {
 
     mix.scripts([
         'libs/jquery/dist/jquery.js',
-        'libs/vue/dist/vue.js',
+        //'libs/vue/dist/vue.js',
         'libs/bootstrap/dist/js/bootstrap.js',
     ], 'public/js/app.js', 'resources/assets');
 
