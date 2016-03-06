@@ -1,0 +1,112 @@
+/* main css file */
+body {
+  padding-top: 50px;
+}
+
+.news p {
+  color: #fff;
+}
+
+.news h2 {
+  color: #ccc
+}
+.img-thumbnail {
+  max-height: 200px;
+  margin: 20px 20px 20px 20px;
+}
+
+.container.news {
+  background-color: #222;
+}
+
+.jumbotron {
+  background-image: url(https://foomatic.org/wp-content/uploads/2015/11/10431218_10203849340011033_6785340330230647452_o-1024x577.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: 0px -75px;
+  min-height: 300px;
+}
+
+#foomatic-logo {
+  height: 50px;
+  margin-top: -15px;
+}
+
+#navbar.collapse.navbar-collapse {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#home,
+#about,
+#contact,
+#events,
+#donate,
+#inventory {
+  border-bottom-style: solid;
+}
+
+#home {
+  border-bottom-color: rgb(238, 53, 36);
+}
+
+#about {
+  border-bottom-color: rgb(235, 169, 36);
+}
+
+#contact {
+    border-bottom-color: yellow;
+}
+
+#events {
+
+  border-bottom-color: rgb(186, 191, 16);
+}
+
+#donate {
+  border-bottom-color: rgb(97, 180, 228);
+}
+
+#inventory {
+    border-bottom-color: indigo;
+}
+
+#first-nav {
+  background-color: #fff;
+}
+
+#second-nav {
+  margin-top: 50px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.footer p {
+  color: #aaa;
+}
+
+.divider {
+  min-height: 50px;
+}
+
+nav.navbar.shrink {
+  min-height: 35px;
+}
+/*# sourceMappingURL=main.css.map */

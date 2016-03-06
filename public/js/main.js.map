@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA","file":"main.js","sourcesContent":["$(window).scroll(function() {\n  if ($(document).scrollTop() > 50) {\n    $('nav').addClass('shrink');\n  } else {\n    $('nav').removeClass('shrink');\n  }\n});"],"sourceRoot":"/source/"}
