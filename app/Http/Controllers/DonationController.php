@@ -28,9 +28,9 @@ class DonationController extends Controller
         //dd($request);
 
         if (Auth::check()) {
-            return view('donation.test');
+            return redirect()->route('donate.create');
+
         }
-        return redirect()->route('donation.create');
         return view('donation.index');
     }
 
@@ -52,9 +52,7 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
-
-        $donation = Donation::create(['user_id' => 1]);
+        $donation = Donation::create(['user_id' => Auth::user()->id]);
 
         foreach ($request->items as $index => $item) {
             $test[] = ['name' => 'placeholder', 'description' => $item, 'cost' => $request->costs[$index]];
@@ -62,12 +60,12 @@ class DonationController extends Controller
                 'name' => 'placeholder',
                 'description' => $item,
                 'cost' => $request->costs[$index],
-                'user_id' => 1,
+                'user_id' => Auth::user()->id,
                 'donation_id' => $donation->id,
             ]);
         }
 
-
+        return view('donation.thanks');
 
         dd($test);
     }

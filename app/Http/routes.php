@@ -33,6 +33,9 @@ Route::group(['middleware' => ['web']], function () {
         'inventory' => 'asset',
     ]]);
     Route::resource('/donate', 'DonationController');
+    Route::get('/me', function(){
+        return Auth::user()->name;
+    });
 });
 
 // Route::get('/inventory', ['as' => 'inventory', 'uses' => 'InventoryController@index']);

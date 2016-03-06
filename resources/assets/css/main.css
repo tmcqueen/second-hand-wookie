@@ -40,25 +40,35 @@ body {
 #home,
 #about,
 #contact,
-#events {
+#events,
+#donate,
+#inventory {
   border-bottom-style: solid;
 }
 
 #home {
-  border-bottom-color: rgb(235, 169, 36)
+  border-bottom-color: rgb(238, 53, 36);
 }
 
 #about {
-  border-bottom-color: rgb(97, 180, 228)
+  border-bottom-color: rgb(235, 169, 36);
 }
 
 #contact {
-  border-bottom-color: rgb(186, 191, 16)
+    border-bottom-color: yellow;
 }
 
 #events {
 
-  border-bottom-color: rgb(238, 53, 36);
+  border-bottom-color: rgb(186, 191, 16);
+}
+
+#donate {
+  border-bottom-color: rgb(97, 180, 228);
+}
+
+#inventory {
+    border-bottom-color: indigo;
 }
 
 #first-nav {

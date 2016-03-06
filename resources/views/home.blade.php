@@ -20,9 +20,10 @@
         </div>
         <div class="col-md-4">
         <h2>Get Involved</h2>
-        <a href="#" class="btn btn-lg btn-primary btn-block">Join</a>
-        <a href="#" class="btn btn-lg btn-success btn-block">Donate</a>
-        <a href="#" class="btn btn-lg btn-warning btn-block">Volunteer</a>
+        {{link_to('/register', 'Join', ['class' => 'btn btn-lg btn-primary btn-block'])}}
+        {{link_to_route('donate.index', 'Donate', [], ['class' => 'btn btn-lg btn-success btn-block'])}}
+        {{link_to_route('inventory.index', 'Inventory', [], ['class' => 'btn btn-lg btn-warning btn-block'])}}
+
         </div>
     </div>
     </div>

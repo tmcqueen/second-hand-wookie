@@ -15,6 +15,8 @@
             <li id="about" class="{{$uri == 'about' ? 'active' : '' }}">{{link_to_route('about', 'About')}}</li>
             <li id="contact" class="{{$uri == 'contact' ? 'active' : '' }}">{{link_to_route('contact', 'Contact')}}</li>
             <li id="events" class="{{$uri == 'events' ? 'active' : '' }}">{{link_to_route('events', 'Events')}}</li>
+            <li id="donate" class="{{$uri == 'donate' ? 'active' : '' }}">{{link_to_route('donate.index', 'Donate')}}</li>
+            <li id="inventory" class="{{$uri == 'inventory' ? 'active' : '' }}">{{link_to_route('inventory.index', 'Inventory')}}</li>
         </ul>
         </div>
         <!--/.nav-collapse -->
