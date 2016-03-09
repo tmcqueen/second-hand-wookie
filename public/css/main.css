@@ -42,7 +42,8 @@ body {
 #contact,
 #events,
 #donate,
-#inventory {
+#inventory,
+#login {
   border-bottom-style: solid;
 }
 
@@ -69,6 +70,10 @@ body {
 
 #inventory {
     border-bottom-color: indigo;
+}
+
+#login {
+    border-bottom-color: chartreuse;
 }
 
 #first-nav {

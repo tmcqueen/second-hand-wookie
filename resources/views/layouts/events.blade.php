@@ -9,17 +9,12 @@
     @stack('styles-before')
     @stack('styles-after')
 
-    <title>Foomatic</title>
+    <title>Foomatic|Events</title>
 
 </head>
 <body>
-    @include('layouts.first-nav')
 
-    @include('layouts.second-nav')
-
-    @yield('content');
-
-    @include('footer')
+    @yield('content')
 
     @stack('scripts-before')
     @stack('scripts-after')

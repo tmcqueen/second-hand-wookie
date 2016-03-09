@@ -33,10 +33,37 @@
             <textarea class="form-control" rows="4">{{$asset->description}}</textarea>
 
         </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="in_inventory"
+                checked="{{($asset->in_inventory) ? 'true' : 'false'}}">In Inventory
+            </label>
+       </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
         {{link_to(URL::previous(),'Cancel', ['class' => 'btn btn-warning'])}}
     </form>
 
+    <p>
+        <pre>
+            {{var_dump($asset)}}
+        </pre>
+    </p>
+
+</div>
+
+<div class="container">
+
+    <form action="">
+        <input type="file">
+    </form>
+
+    <div class="row">
+
+    </div>
+    <div class="row">
+
+
+    </div>
 </div>
 @endsection

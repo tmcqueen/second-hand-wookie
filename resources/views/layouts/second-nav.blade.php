@@ -18,6 +18,14 @@
             <li id="donate" class="{{$uri == 'donate' ? 'active' : '' }}">{{link_to_route('donate.index', 'Donate')}}</li>
             <li id="inventory" class="{{$uri == 'inventory' ? 'active' : '' }}">{{link_to_route('inventory.index', 'Inventory')}}</li>
         </ul>
+        <ul class="nav navbar-nav pull-right">
+            @if (Auth::check())
+            <li id="login">{{link_to_route('me.settings.index', 'My Profile')}}</li>
+            <li class="login">{{link_to('/logout', 'Log Out')}}</li>
+            @else
+            <li id="login">{{link_to('/login', 'Log in')}}</li>
+            @endif
+        </ul>
         </div>
         <!--/.nav-collapse -->
     </div>

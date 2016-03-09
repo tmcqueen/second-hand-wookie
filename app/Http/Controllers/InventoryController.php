@@ -34,7 +34,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventory.create');
     }
 
     /**
@@ -45,7 +45,16 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $asset = Asset::create([
+            'name' => $request->name,
+            'make' => $request->make,
+            'model' => $request->model,
+            'cost' => $request->cost,
+            'donation_id' => 0,
+            'in_inventory' => !! $request->in_inventory == 'on'
+        ]);
+        return view('inventory.show', ['asset' => $asset]);
+        dd($request);
     }
 
     /**
@@ -54,10 +63,10 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Asset $asset)
+    public function show(Request $request, $asset)
     {
         //dd($asset->getAttributes());
-        return view('inventory.show', ['asset' => $asset]);
+        return view('inventory.show', ['asset' => Asset::find($asset)]);
     }
 
     /**
@@ -66,9 +75,9 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asset $asset)
+    public function edit($asset)
     {
-        return view('inventory.edit', ['asset' => $asset]);
+        return view('inventory.edit', ['asset' => Asset::find($asset)]);
     }
 
     /**
@@ -80,7 +89,7 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -21,6 +21,24 @@ elixir(function(mix) {
 
     mix.styles(['main.css'], 'public/css/main.css', 'resources/assets/css');
 
+    mix.styles([
+        'libs/bootstrap/dist/css/bootstrap.css',
+        'libs/bootstrap/dist/css/bootstrap-theme.css',
+        'libs/fullcalendar/dist/fullcalendar.css',
+        'css/events.css',
+    ], 'public/css/events.css', 'resources/assets');
+
+    mix.copy([
+        'resources/assets/libs/jquery/dist/jquery.js',
+        'resources/assets/libs/moment/moment.js',
+        'resources/assets/libs/bootstrap/dist/js/bootstrap.js',
+        'resources/assets/libs/fullcalendar/dist/fullcalendar.js',
+    ], 'public/js');
+
+    mix.scripts([
+        //'jquery/dist/jquery.js',
+    ], 'public/js/events.js', 'resources/assets/libs');
+
     mix.scripts([
         'libs/jquery/dist/jquery.js',
         //'libs/vue/dist/vue.js',
@@ -30,5 +48,7 @@ elixir(function(mix) {
     mix.scripts(['main.js'], 'public/js/main.js', 'resources/assets/js');
 
     mix.copy('resources/assets/libs/bootstrap/dist/fonts', 'public/fonts');
+    mix.copy('resources/assets/libs/bootstrap/dist/css/bootstrap.css', 'public/css');
     mix.copy('resources/assets/libs/font-awesome/fonts', 'public/fonts');
+    mix.copy('resources/assets/css/markdown.css', 'public/css');
 });

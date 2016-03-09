@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -33,9 +34,6 @@ Route::group(['middleware' => ['web']], function () {
         'inventory' => 'asset',
     ]]);
     Route::resource('/donate', 'DonationController');
-    Route::get('/me', function(){
-        return Auth::user()->name;
-    });
 });
 
 // Route::get('/inventory', ['as' => 'inventory', 'uses' => 'InventoryController@index']);
@@ -45,5 +43,11 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::resource('/settings', 'SettingsController');
+    Route::get('/me', ['uses' => 'PublicProfileController@index']);
+    Route::resource('/me/settings', 'SettingsController');
+});
+
+Route::get('/changelog', function() {
+    $status = file_get_contents('../STATUS.md');
+    return view('changelog')->with('status', Markdown::convertToHtml($status));
 });

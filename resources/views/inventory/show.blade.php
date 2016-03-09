@@ -7,5 +7,7 @@
         <li>{{$property}}: {{$asset[$property]}}</li>
     @endforeach
     </ul>
+
+    {{link_to_route('inventory.edit', 'Edit', ['asset' => $asset->id], ['class' => 'btn btn-lg btn-primary'])}}
 </div>
 @endsection

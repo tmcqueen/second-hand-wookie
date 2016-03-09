@@ -80,7 +80,75 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('address1') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="address1">
+
+                                @if ($errors->has('address1'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address1') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('address2') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Address (cont.)</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="address2">
+
+                                @if ($errors->has('address2'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address2') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">City</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="city">
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">State</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="state">
+
+                                @if ($errors->has('state'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Zip</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="zip">
+
+                                @if ($errors->has('zip'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('zip') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>zip                  <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-user"></i>Register
