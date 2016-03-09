@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-4">
         <h2>Our Mission</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque praesentium necessitatibus assumenda, ex quod. Fugiat culpa pariatur cupiditate, quam, voluptatibus nam veniam illo eius aspernatur repellendus quidem minus consectetur quasi!</p>
+        <p>Foomatic Makerspace is a community space where people of all ages, backgrounds and experience levels can come together to learn and create. Our shop is part artist’s studio, part computer lab and part woodshop with a little mad scientist’s lab thrown in for good measure. We strive to be a collaborative space, sharing both knowledge and resources. Foomatic wants to be more than just a community tool shop. Our goal is to bring together makers from all walks of life, and then challenge them to engage in creating positive change in the local community through collaboration with other local nonprofits.</p>
         </div>
         <div class="col-md-4">
         <h2>What is a Makerspace?</h2>
