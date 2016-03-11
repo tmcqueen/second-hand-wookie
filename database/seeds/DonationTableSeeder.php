@@ -16,6 +16,9 @@ class DonationTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
+        $user = User::find(1);
+        Auth::login($user);
+
         $donation = factory(Donation::class)->create([
             'user_id' => 1
         ]);

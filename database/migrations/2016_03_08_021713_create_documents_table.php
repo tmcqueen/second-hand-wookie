@@ -18,7 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->string('code')->unique()->index();
             $table->integer('user_id')->unsigned()->default(0);
             $table->string('type');
-            $table->string('path')->nullable();
+            $table->string('path');
             $table->timestamps();
         });
     }

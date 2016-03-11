@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Asset;
+use App\Document\Document;
+use Flysystem;
 
 class InventoryController extends Controller
 {
@@ -89,7 +91,23 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
+        $asset = Asset::find($id);
+
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $stream = fopen($file->getRealPath(), 'r+');
+            $path = 'uploads/' . $file->getClientOriginalName();
+            Flysystem::writeStream($path , $stream);
+            fclose($stream);
+            $document = Document::createDocumentByMimeType(
+                $file->getClientMimeType(),
+                ['path' => $path]);
+            $asset->documents()->attach($document);
+        }
+
+        $asset->update($request->input());
+
+        return back();
     }
 
     /**

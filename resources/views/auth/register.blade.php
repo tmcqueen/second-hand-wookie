@@ -84,7 +84,7 @@
                             <label class="col-md-4 control-label">Address</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="address1">
+                                <input type="text" class="form-control" name="address1" value="{{ old('address1') }}">
 
                                 @if ($errors->has('address1'))
                                     <span class="help-block">
@@ -98,7 +98,7 @@
                             <label class="col-md-4 control-label">Address (cont.)</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="address2">
+                                <input type="text" class="form-control" name="address2" value="{{ old('address2') }}">
 
                                 @if ($errors->has('address2'))
                                     <span class="help-block">
@@ -112,7 +112,7 @@
                             <label class="col-md-4 control-label">City</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="city">
+                                <input type="text" class="form-control" name="city" value="{{ old('city') }}">
 
                                 @if ($errors->has('city'))
                                     <span class="help-block">
@@ -126,7 +126,7 @@
                             <label class="col-md-4 control-label">State</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="state">
+                                <input type="text" class="form-control" name="state" value="{{ old('state') }}">
 
                                 @if ($errors->has('state'))
                                     <span class="help-block">
@@ -140,7 +140,7 @@
                             <label class="col-md-4 control-label">Zip</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="zip">
+                                <input type="text" class="form-control" name="zip" value="{{ old('zip') }}">
 
                                 @if ($errors->has('zip'))
                                     <span class="help-block">

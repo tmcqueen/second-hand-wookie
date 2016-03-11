@@ -4,33 +4,37 @@
 <div class="container">
 
 
-    <form action="" method="POST" role="form">
+    {{Form::open([
+        'route' => ['inventory.update', $asset->id],
+        'files'=> false,
+        'method' => 'patch'])}}
+
         <legend>Asset Edit</legend>
 
         <div class="form-group">
             <label for="assetName">Name</label>
-            <input type="text" class="form-control" id="assetName" placeholder="Input field" value="{{$asset->name}}">
+            <input type="text" class="form-control" name="name" id="assetName" placeholder="Input field" value="{{$asset->name}}">
         </div>
 
         <div class="form-group">
             <label for="assetMake">Make</label>
-            <input type="text" class="form-control" id="assetMake" placeholder="Manufacturer" value="{{$asset->make}}">
+            <input type="text" class="form-control" name="make" id="assetMake" placeholder="Manufacturer" value="{{$asset->make}}">
         </div>
 
         <div class="form-group">
             <label for="assetModel">Model</label>
-            <input type="text" class="form-control" id="assetModel" placeholder="Model" value="{{$asset->model}}">
+            <input type="text" class="form-control" name="model" id="assetModel" placeholder="Model" value="{{$asset->model}}">
         </div>
 
         <div class="form-group">
             <label for="assetCost">Cost</label>
-            <input type="text" class="form-control" id="assetCost" placeholder="Cost" value="{{$asset->cost}}">
+            <input type="text" class="form-control" name="cost" id="assetCost" placeholder="Cost" value="{{$asset->cost}}">
         </div>
 
         <div class="form-group">
             <label for="assetDescription">Description</label>
 
-            <textarea class="form-control" rows="4">{{$asset->description}}</textarea>
+            <textarea class="form-control" name="description" rows="4">{{$asset->description}}</textarea>
 
         </div>
         <div class="checkbox">
@@ -44,26 +48,25 @@
         {{link_to(URL::previous(),'Cancel', ['class' => 'btn btn-warning'])}}
     </form>
 
-    <p>
-        <pre>
-            {{var_dump($asset)}}
-        </pre>
-    </p>
-
 </div>
 
-<div class="container">
-
-    <form action="">
-        <input type="file">
+<div class="container" style="margin-top: 30px">
+    {{Form::open([
+        'route' => ['inventory.update', $asset->id],
+        'files'=> true,
+        'method' => 'patch'])}}
+        <input name="file" type="file">
+        <button class="btn btn-primary">Submit</button>
     </form>
 
     <div class="row">
 
     </div>
+
     <div class="row">
 
 
     </div>
 </div>
+
 @endsection

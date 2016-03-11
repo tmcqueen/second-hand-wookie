@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Http\Request;
 
+use Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -46,33 +48,54 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
-    }
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => 'required|max:255',
+    //         'email' => 'required|email|max:255|unique:users',
+    //         'password' => 'required|confirmed|min:6',
+    //     ]);
+    // }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'address1' => $data['address1'],
-            'address2' => $data['address2'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'zip' => $data['zip'],
-            'password' => bcrypt($data['password']),
-        ]);
+    // /**
+    //  * Create a new user instance after a valid registration.
+    //  *
+    //  * @param  array  $data
+    //  * @return User
+    //  */
+    // protected function create(array $data)
+    // {
+    //     $user = new User;
+
+    //     if ($user->save()) {
+    //         return redirect()->route('home');
+    //     } else {
+    //         return back()->withErrors($user->errors());
+    //     }
+
+    //     // return User::create([
+    //     //     'name' => $data['name'],
+    //     //     'email' => $data['email'],
+    //     //     'username' => $data['username'],
+    //     //     'address1' => $data['address1'],
+    //     //     'address2' => $data['address2'],
+    //     //     'city' => $data['city'],
+    //     //     'state' => $data['state'],
+    //     //     'zip' => $data['zip'],
+    //     //     'password' => bcrypt($data['password']),
+    //     // ]);
+    // }
+
+    public function register(Request $request) {
+        //dd($request->input());
+        $user = new User($request->all());
+
+        if ($user->save()) {
+            Auth::guard($this->getGuard())->login($user);
+            return redirect()->route('home');
+        } else {
+            //dd($user->errors());
+            return back()->withErrors($user->errors());
+        }
     }
 }

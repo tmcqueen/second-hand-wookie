@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Faker\Factory as Faker;
 use Auth;
+use App\Document\Document;
 use App\Document\Image;
 
 class Asset extends Model
@@ -32,6 +33,10 @@ class Asset extends Model
 
     public function getAttriutes() {
         return $this->attributes;
+    }
+
+    public function documents() {
+        return $this->morphToMany(Document::class, 'documentable');
     }
 
     // public function documents() {
