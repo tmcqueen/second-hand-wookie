@@ -51,3 +51,5 @@ Route::get('/changelog', function() {
     $status = file_get_contents('../STATUS.md');
     return view('changelog')->with('status', Markdown::convertToHtml($status));
 });
+
+Route::get('/d/{code}', ['as' => 'document', 'uses' => 'DocumentController@show']);

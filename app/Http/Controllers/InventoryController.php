@@ -9,6 +9,8 @@ use App\Asset;
 use App\Document\Document;
 use Flysystem;
 
+use App\Events\ImageWasDeleted;
+
 class InventoryController extends Controller
 {
 
@@ -82,32 +84,60 @@ class InventoryController extends Controller
         return view('inventory.edit', ['asset' => Asset::find($asset)]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $asset = Asset::find($id);
+
+    // private function removeSelectedDocuments(&$item, $key, $asset) {
+    //     if (strpos($key, 'remove-document', 15)) {
+    //         $document = Document::findByCode($item);
+    //         $asset->documents()->detach($document);
+    //         Event::fire(new ImageWasDeleted($asset));
+    //         //$document->delete();
+    //     }
+    // }
+
+    private function removeDocuments($request, $asset) {
+        if ($request->has('documents')) {
+            $input = $request->all();
+            array_walk($input, function(&$item, $key, $asset) {
+                if (strstr($key, 'remove-document')) {
+                    $document = Document::findByCode($item);
+                    $asset->documents()->detach($document);
+                    event(new ImageWasDeleted($document));
+                    $document->delete();
+                }
+            }, $asset);
+        }
+    }
+
+    private function setDefaultImage($request, $asset) {
+        if($request->has('default-image')) {
+            $image = Document::findByCode($request->input('default-image'));
+            $asset->defaultImage()->associate($image);
+        }
+    }
+
+    private function attachFiles($request, $asset) {
 
         if($request->hasFile('file')) {
             $file = $request->file('file');
-            $stream = fopen($file->getRealPath(), 'r+');
-            $path = 'uploads/' . $file->getClientOriginalName();
-            Flysystem::writeStream($path , $stream);
-            fclose($stream);
-            $document = Document::createDocumentByMimeType(
-                $file->getClientMimeType(),
-                ['path' => $path]);
+            $document = Document::createDocument($file);
             $asset->documents()->attach($document);
         }
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $asset = Asset::find($id);
+
+        $this->removeDocuments($request, $asset);
+
+        $this->setDefaultImage($request, $asset);
+
+        $this->attachFiles($request, $asset);
 
         $asset->update($request->input());
 
-        return back();
+        return redirect()->route('inventory.show', $id);
     }
 
     /**

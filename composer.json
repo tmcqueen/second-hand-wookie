@@ -9,11 +9,14 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "^5.2",
         "league/commonmark": "^0.13.0",
-        "graham-campbell/markdown": "^6.0",
         "league/flysystem": "^1.0",
-        "graham-campbell/flysystem": "^3.3",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "laravelbook/ardent": "^3.4"
+        "league/glide-laravel": "^1.0",
+        "graham-campbell/flysystem": "^3.3",
+        "graham-campbell/markdown": "^6.0",
+        "laravelbook/ardent": "^3.4",
+        "spatie/laravel-glide": "^3.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

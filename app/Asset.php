@@ -2,21 +2,21 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use LaravelArdent\Ardent\Ardent;
 use Faker\Factory as Faker;
 use Auth;
+use App\User;
 use App\Document\Document;
 use App\Document\Image;
 
-class Asset extends Model
+class Asset extends Ardent
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'make', 'model', 'cost', 'description', 'user_id', 'donation_id', 'in_inventory'
+    ];
+
+    public static $rules = [
+      'name'        => 'required|between:3,80',
     ];
 
     public function __construct(array $attributes = []) {
@@ -24,7 +24,11 @@ class Asset extends Model
         $faker = Faker::create();
         $letters = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
         $this->tag = implode($faker->randomElements($letters, 6));
-        $this->user_id = Auth::user()->id;
+        //$this->user_id = Auth::user()->id;
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function donation() {
@@ -39,14 +43,7 @@ class Asset extends Model
         return $this->morphToMany(Document::class, 'documentable');
     }
 
-    // public function documents() {
-    //     $faker = Faker\Factory::create();
-
-    //     return [
-    //       new Image(['path' => $faker->imageUrl(140,140)]),
-    //       new Image(['path' => $faker->imageUrl(140,140)]),
-    //       new Image(['path' => $faker->imageUrl(140,140)]),
-    //       new Image(['path' => $faker->imageUrl(140,140)]),
-    //     ];
-    // }
+    public function defaultImage() {
+        return $this->belongsTo(Image::class, 'default_image_id');
+    }
 }

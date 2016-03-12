@@ -151,6 +151,8 @@ return [
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Spatie\Glide\GlideServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -211,6 +213,8 @@ return [
         'Markdown'  => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        'GlideImage' => Spatie\Glide\GlideImageFacade::class,
+        'InImage'   => Intervention\Image\Facades\Image::class,
     ],
 
 ];

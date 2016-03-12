@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use LaravelArdent\Ardent\Ardent;
 
-class Donation extends Model
+class Donation extends Ardent
 {
     protected $fillable = ['user_id'];
 

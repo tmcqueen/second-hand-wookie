@@ -22,6 +22,7 @@ class CreateAssetsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('donation_id')->unsigned()->index();
             $table->text('description')->nullable();
+            $table->integer('default_image_id')->nullable()->unsigned();
             $table->boolean('in_inventory')->default(false);
             $table->timestamps();
         });
