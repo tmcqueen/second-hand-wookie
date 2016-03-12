@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+
     <div class="default-image">
         <img src="{{$asset->defaultImage->getThumbnailUrl(400,400)}}" alt="">
     </div>
@@ -26,6 +27,8 @@
     @endforelse
     </div>
 
+    @if(Auth::check())
     {{link_to_route('inventory.edit', 'Edit', ['asset' => $asset->id], ['class' => 'btn btn-lg btn-primary'])}}
+    @endif
 </div>
 @endsection
