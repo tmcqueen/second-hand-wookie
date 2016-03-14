@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
            'name' => 'Tim McQueen',
            'username' => 'tim.mcqueen',
            'email' => 'tim.mcqueen@gmail.com',
-           'password' => bcrypt('password'),
+           'password' => 'password',
         ]);
     }
 }
