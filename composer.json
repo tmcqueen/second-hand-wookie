@@ -16,7 +16,8 @@
         "graham-campbell/markdown": "^6.0",
         "laravelbook/ardent": "^3.4",
         "spatie/laravel-glide": "^3.0",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "spatie/laravel-backup": "^3.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
