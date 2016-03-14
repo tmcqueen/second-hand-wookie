@@ -6,7 +6,11 @@
     <div class="row">
         <div class="col-md-6">
             <div class="default-image">
+                @if (! is_null($asset->defaultImage))
                 <img src="{{$asset->defaultImage->getThumbnailUrl(400,400)}}" alt="">
+                @else
+                <img src="http://lorempixel.com/404/404/cats/No%20Image%20Found%20Have%20A%20Cat%20Instead/" alt="">
+                @endif
             </div>
         </div>
 
