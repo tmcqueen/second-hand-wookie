@@ -65,4 +65,6 @@ elixir(function(mix) {
     mix.copy('/home/timm/Foomatic/site/resources/assets/libs/dropzone/dist/min/dropzone.min.css', 'public/css');
     mix.copy('/home/timm/Foomatic/site/resources/assets/libs/dropzone/dist/min/dropzone.min.js', 'public/js');
 
+    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/sweetalert/dist/sweetalert.css', 'public/css');
+    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/sweetalert/dist/sweetalert.min.js', 'public/js');
 });
