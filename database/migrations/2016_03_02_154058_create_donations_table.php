@@ -18,6 +18,7 @@ class CreateDonationsTable extends Migration
             $table->text('instructions')->nullable();
             $table->boolean('processed')->default(false);
             $table->integer('processed_by')->unsigned()->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

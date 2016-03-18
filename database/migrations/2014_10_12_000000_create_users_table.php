@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->boolean('confirmed')->default(true);
             $table->integer('confirmed_by')->unsigned()->nullable();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

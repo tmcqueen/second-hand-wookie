@@ -27,6 +27,8 @@ $factory->define(Donation::class, function (Faker\Generator $faker) {
 $factory->define(Asset::class, function(Faker\Generator $faker) {
     return [
         'name'          => $faker->word,
+        'make'          => $faker->word,
+        'model'          => $faker->word,
         'user_id'       => 0,
         'donation_id'   => 0,
         'cost'          => $faker->randomNumber(2)*100,

@@ -13,11 +13,19 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class)->create([
-           'name' => 'Tim McQueen',
-           'username' => 'tim.mcqueen',
-           'email' => 'tim.mcqueen@gmail.com',
-           'password' => 'password',
+        $user = User::create([
+            'name' => 'Tim McQueen',
+            'username' => 'tim.mcqueen',
+            'email' => 'tim.mcqueen@gmail.com',
+            'password' => 'password',
+            'address1' => '333 Dogwood Ridge Dr.',
+            'city' => 'Wetumpka',
+            'state' => 'AL',
+            'zip' => '36093',
+            'confirmed' => true,
         ]);
+
+        $user->assignRole('admin');
+        $user->save();
     }
 }

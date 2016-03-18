@@ -24,6 +24,7 @@ class CreateAssetsTable extends Migration
             $table->text('description')->nullable();
             $table->integer('default_image_id')->nullable()->unsigned();
             $table->boolean('in_inventory')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

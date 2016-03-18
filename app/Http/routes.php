@@ -30,9 +30,9 @@ Route::get('/events', ['as' => 'events', 'uses' => 'HomeController@events']);
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('@{user}', ['uses' => 'PublicProfileController@index']);
-    Route::resource('/inventory', 'InventoryController', ['parameters' => [
-        'inventory' => 'asset',
-    ]]);
+    Route::resource('inventory', 'InventoryController', [
+        'parameters' => ['inventory' => 'asset'],
+    ]);
     Route::resource('/donate', 'DonationController');
 });
 
@@ -53,3 +53,19 @@ Route::get('/changelog', function() {
 });
 
 Route::get('/d/{code}', ['as' => 'document', 'uses' => 'DocumentController@show']);
+
+
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => ['web', 'auth'],
+    'namespace' => 'Admin',
+], function() {
+    Route::resource('users', 'AdminUsersController', [
+        'parameters' => 'singular',
+        'middleware' => 'can:admin.users']);
+    Route::resource('inventory', 'AdminInventoryController', [
+        'parameters' => ['inventory' => 'asset'],
+        'middleware' => 'can:admin.assets']);
+
+
+});

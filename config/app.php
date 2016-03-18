@@ -151,9 +151,11 @@ return [
         GrahamCampbell\Markdown\MarkdownServiceProvider::class,
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Spatie\Glide\GlideServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Spatie\Glide\GlideServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
         /*
          * Application Service Providers...

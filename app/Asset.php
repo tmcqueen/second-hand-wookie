@@ -8,9 +8,16 @@ use Auth;
 use App\User;
 use App\Document\Document;
 use App\Document\Image;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Asset extends Ardent
+class Asset extends Ardent implements HasMediaConversions
 {
+    use HasMediaTrait;
+
+    use SoftDeletes;
+
     protected $fillable = [
         'name', 'make', 'model', 'cost', 'description', 'user_id', 'donation_id', 'in_inventory'
     ];
@@ -25,6 +32,21 @@ class Asset extends Ardent
         $letters = str_split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
         $this->tag = implode($faker->randomElements($letters, 6));
         //$this->user_id = Auth::user()->id;
+    }
+
+    public function registerMediaConversions()
+    {
+        $this->addMediaConversion('thumb')
+             ->setManipulations([
+                 'w'  => 140,
+                 'h'  => 140,
+                 'fm' => 'png'])
+             ->performOnCollections('images', 'documents')
+             ->nonQueued();
+    }
+
+    public function getRouteKeyName() {
+        return 'tag';
     }
 
     public function user() {

@@ -67,10 +67,9 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $asset)
+    public function show(Request $request, Asset $asset)
     {
-        //dd($asset->getAttributes());
-        return view('inventory.show', ['asset' => Asset::find($asset)]);
+        return view('inventory.show', ['asset' => $asset]);
     }
 
     /**
@@ -79,20 +78,10 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($asset)
+    public function edit(Request $request, Asset $asset)
     {
-        return view('inventory.edit', ['asset' => Asset::find($asset)]);
+        return view('inventory.edit', ['asset' => $asset]);
     }
-
-
-    // private function removeSelectedDocuments(&$item, $key, $asset) {
-    //     if (strpos($key, 'remove-document', 15)) {
-    //         $document = Document::findByCode($item);
-    //         $asset->documents()->detach($document);
-    //         Event::fire(new ImageWasDeleted($asset));
-    //         //$document->delete();
-    //     }
-    // }
 
     private function removeDocuments($request, $asset) {
         if ($request->has('documents')) {
@@ -124,11 +113,8 @@ class InventoryController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Asset $asset)
     {
-
-        $asset = Asset::find($id);
-
         $this->removeDocuments($request, $asset);
 
         $this->setDefaultImage($request, $asset);
@@ -137,7 +123,7 @@ class InventoryController extends Controller
 
         $asset->update($request->input());
 
-        return redirect()->route('inventory.show', $id);
+        return back();
     }
 
     /**

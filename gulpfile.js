@@ -51,4 +51,18 @@ elixir(function(mix) {
     mix.copy('resources/assets/libs/bootstrap/dist/css/bootstrap.css', 'public/css');
     mix.copy('resources/assets/libs/font-awesome/fonts', 'public/fonts');
     mix.copy('resources/assets/css/markdown.css', 'public/css');
+
+
+
+    mix.copy('resources/assets/libs/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css', 'public/css');
+    mix.copy('resources/assets/libs/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js', 'public/js');
+    mix.copy('resources/assets/libs/Bootstrap-Image-Gallery/img', 'public/img');
+
+    mix.copy('resources/assets/libs/blueimp-gallery/css/blueimp-gallery.min.css', 'public/css');
+    mix.copy('resources/assets/libs/blueimp-gallery/js/jquery.blueimp-gallery.min.js', 'public/js');
+    mix.copy('resources/assets/libs/blueimp-gallery/img', 'public/img');
+
+    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/dropzone/dist/min/dropzone.min.css', 'public/css');
+    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/dropzone/dist/min/dropzone.min.js', 'public/js');
+
 });
