@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a3cdb73854a0d9f5425aa2af7aac50d2",
-    "content-hash": "350f34795af9d01f61ec39fe9aca56f4",
+    "hash": "f3660e0575e28ee175ac4a1353dbccbf",
+    "content-hash": "4f18a68afe5c15e4bffc42fce71f10d6",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3204,6 +3204,52 @@
                 "dump"
             ],
             "time": "2016-02-13 09:23:44"
+        },
+        {
+            "name": "uxweb/sweet-alert",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uxweb/sweet-alert.git",
+                "reference": "13c6846d4d789cbd71716639c14a455b095db14a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uxweb/sweet-alert/zipball/13c6846d4d789cbd71716639c14a455b095db14a",
+                "reference": "13c6846d4d789cbd71716639c14a455b095db14a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "UxWeb\\SweetAlert\\": "src/SweetAlert/"
+                },
+                "files": [
+                    "src/SweetAlert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Uziel Bueno",
+                    "email": "ux.webs@gmail.com"
+                }
+            ],
+            "description": "A simple PHP package to show Sweet Alerts with the Laravel Framework",
+            "keywords": [
+                "alert",
+                "laravel",
+                "sweet"
+            ],
+            "time": "2016-03-08 06:11:44"
         },
         {
             "name": "vlucas/phpdotenv",

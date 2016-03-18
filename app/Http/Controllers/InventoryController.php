@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Asset;
 use App\Document\Document;
 use Flysystem;
+use Alert;
 
 use App\Events\ImageWasDeleted;
 
@@ -108,8 +109,15 @@ class InventoryController extends Controller
 
         if($request->hasFile('file')) {
             $file = $request->file('file');
-            $document = Document::createDocument($file);
-            $asset->documents()->attach($document);
+            $mime = $file->getClientMimeType();
+            if (!! strstr($mime, 'image')) {
+                $asset->addMedia($file)->toCollection('images');
+            }
+            else {
+                $asset->addMedia($file)
+                      ->withCustomProperties(['mime-type' => $mime])
+                      ->toCollection('documents');
+            }
         }
     }
 
@@ -122,6 +130,9 @@ class InventoryController extends Controller
         $this->attachFiles($request, $asset);
 
         $asset->update($request->input());
+
+        Alert::success('Changes saved.')
+            ->persistent('OK');
 
         return back();
     }

@@ -127,9 +127,6 @@ class AdminInventoryController extends Controller
                       ->withCustomProperties(['mime-type' => $mime])
                       ->toCollection('documents');
             }
-
-            // $document = Document::createDocument($file, Auth::user());
-            // $asset->documents()->attach($document);
         }
     }
 

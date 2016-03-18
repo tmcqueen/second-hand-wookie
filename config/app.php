@@ -156,6 +156,7 @@ return [
         Spatie\Backup\BackupServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -218,6 +219,7 @@ return [
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'GlideImage' => Spatie\Glide\GlideImageFacade::class,
         'InImage'   => Intervention\Image\Facades\Image::class,
+        'Alert'     => UxWeb\SweetAlert\SweetAlert::class,
     ],
 
 ];

@@ -94,7 +94,7 @@
                 <div class="panel-body">
 
                 @include('partials.dropzone', [
-                    'target' => route('admin.inventory.update', $asset->tag)
+                    'target' => route('inventory.update', $asset->tag)
                 ])
 
                 </div>
@@ -106,6 +106,6 @@
 
         </div>
     </div>
-</div>
+<!--</div>-->
 @include('partials.blueimp')
 @endsection
