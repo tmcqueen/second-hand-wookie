@@ -8,6 +8,7 @@ use Auth;
 use App\User;
 use App\Document\Document;
 use App\Document\Image;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
@@ -43,6 +44,21 @@ class Asset extends Ardent implements HasMediaConversions
                  'fm' => 'png'])
              ->performOnCollections('images', 'documents')
              ->nonQueued();
+    }
+
+    public function attachFile(UploadedFile $file) {
+
+        $mime = $file->getClientMimeType();
+        if (!! strstr($mime, 'image')) {
+            $this->addMedia($file)
+                 ->withCustomProperties(['mime-type' => $mime])
+                 ->toCollection('images');
+        }
+        else {
+            $this->addMedia($file)
+                 ->withCustomProperties(['mime-type' => $mime])
+                 ->toCollection('documents');
+        }
     }
 
     public function getRouteKeyName() {

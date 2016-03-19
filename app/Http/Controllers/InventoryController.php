@@ -108,16 +108,7 @@ class InventoryController extends Controller
     private function attachFiles($request, $asset) {
 
         if($request->hasFile('file')) {
-            $file = $request->file('file');
-            $mime = $file->getClientMimeType();
-            if (!! strstr($mime, 'image')) {
-                $asset->addMedia($file)->toCollection('images');
-            }
-            else {
-                $asset->addMedia($file)
-                      ->withCustomProperties(['mime-type' => $mime])
-                      ->toCollection('documents');
-            }
+            $asset->attachFile($request->file('file'));
         }
     }
 
