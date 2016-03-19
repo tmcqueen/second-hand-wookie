@@ -1,6 +1,12 @@
 Recent Changes
 ==============
 
+### 2016-03-18
+* Removed NIH Document management and replaced with spatie/laravel-medialibrary
+* cleaned up the inventory templates
+* switched to Amazon S3 for storage
+* added a permissions system
+
 ### 2016-03-12
 * Added League/Glide Image framework
 * Added the Ardent Model framework
