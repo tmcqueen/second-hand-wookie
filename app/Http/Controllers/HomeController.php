@@ -19,8 +19,4 @@ class HomeController extends Controller
     public function contact(Request $request) {
         return view('contact');
     }
-
-    public function events(Request $request) {
-        return view('events');
-    }
 }

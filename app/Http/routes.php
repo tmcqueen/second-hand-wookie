@@ -52,9 +52,6 @@ Route::get('/changelog', function() {
     return view('changelog')->with('status', Markdown::convertToHtml($status));
 });
 
-Route::get('/d/{code}', ['as' => 'document', 'uses' => 'DocumentController@show']);
-
-
 Route::group([
     'prefix' => 'admin',
     'middleware' => ['web', 'auth'],
