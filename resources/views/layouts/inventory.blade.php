@@ -30,6 +30,10 @@
 
 @if (Auth::check())
 @include('layouts.logged-in-nav')
+@else
+
+    @include('layouts.second-nav')
+
 @endif
 
 @yield('content')

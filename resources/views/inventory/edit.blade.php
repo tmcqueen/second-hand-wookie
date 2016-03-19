@@ -8,7 +8,7 @@
         <div class="col-md-8 col-md-offset-2 asset-info">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{$asset->name}}</h3>
+                    <h3 class="panel-title">{{link_to_route('inventory.show', $asset->name, ['asset' => $asset->tag])}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">

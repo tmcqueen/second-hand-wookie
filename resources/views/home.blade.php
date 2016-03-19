@@ -57,16 +57,3 @@
     </div>
     </div>
 @endsection
-
-@push('styles-before')
-
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-
-@endpush
-
-@push('scripts-before')
-
-    <script type="text/javascript" src="/js/app.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
-@endpush

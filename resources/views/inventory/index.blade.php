@@ -1,6 +1,7 @@
 @extends('layouts.inventory')
 
 @section('content')
+<div class="buffer"></div>
 <div class="container">
     <div class="row">
         <table class="table table-bordered">

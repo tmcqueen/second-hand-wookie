@@ -1,23 +1,25 @@
-@extends('layouts.events')
+@extends('layouts.home')
+
+@section('title', 'Foomatic|Events')
 
 @section('content')
 
 <div class="container" style="padding-top: 50px;">
-    <h1>{{$uri}}</h1>
+    <h1>Events</h1>
     <hr>
     <div id="calendar"></div>
 </div>
 
 @endsection
 
-@push('styles-before')
+@push('styles-after')
 
     <link rel="stylesheet" type="text/css" href="/css/events.css">
 
 @endpush
 
-@push('scripts-before')
-    <script src="/js/jquery.js"></script>
+@push('scripts-after')
+    <!--<script src="/js/jquery.js"></script>-->
     <script src="/js/moment.js"></script>
     <script src="/js/fullcalendar.js"></script>
 @endpush

@@ -1,4 +1,5 @@
 
+
     <nav id="second-nav" class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
         <div class="navbar-header">
@@ -11,12 +12,12 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li id="home" class="{{$uri == '/' ? 'active' : '' }}">{{link_to_route('home', 'Home')}}</li>
-            <li id="about" class="{{$uri == 'about' ? 'active' : '' }}">{{link_to_route('about', 'About')}}</li>
-            <li id="contact" class="{{$uri == 'contact' ? 'active' : '' }}">{{link_to_route('contact', 'Contact')}}</li>
-            <li id="events" class="{{$uri == 'events' ? 'active' : '' }}">{{link_to_route('events', 'Events')}}</li>
-            <li id="donate" class="{{$uri == 'donate' ? 'active' : '' }}">{{link_to_route('donate.index', 'Donate')}}</li>
-            <li id="inventory" class="{{$uri == 'inventory' ? 'active' : '' }}">{{link_to_route('inventory.index', 'Inventory')}}</li>
+            <li id="home" class="{{Request::is('/') ? 'active' : '' }}">{{link_to_route('home', 'Home')}}</li>
+            <li id="about" class="{{Request::is('about') ? 'active' : '' }}">{{link_to_route('about', 'About')}}</li>
+            <li id="contact" class="{{Request::is('contact') ? 'active' : '' }}">{{link_to_route('contact', 'Contact')}}</li>
+            <li id="events" class="{{Request::is('events') ? 'active' : '' }}">{{link_to_route('events', 'Events')}}</li>
+            <li id="donate" class="{{Request::is('donate') ? 'active' : '' }}">{{link_to_route('donate.index', 'Donate')}}</li>
+            <li id="inventory" class="{{Request::is('inventory') ? 'active' : '' }}">{{link_to_route('inventory.index', 'Inventory')}}</li>
         </ul>
         <ul class="nav navbar-nav pull-right">
             @if (Auth::check())

@@ -7,9 +7,11 @@
     <meta name="googlebot" content="noindex, nofollow">
 
     @stack('styles-before')
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     @stack('styles-after')
 
-    <title>Foomatic</title>
+    <title>@yield('title', 'Foomatic')</title>
 
 </head>
 <body>
@@ -22,6 +24,8 @@
     @include('footer')
 
     @stack('scripts-before')
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
     @stack('scripts-after')
 </body>
 </html>
