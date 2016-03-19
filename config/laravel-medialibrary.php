@@ -6,7 +6,7 @@ return [
      * The filesystems on which to store added files and derived images by default. Choose
      * one or more of the filesystems you configured in app/config/filesystems.php
      */
-    'defaultFilesystem' => 'media',
+    'defaultFilesystem' => 's3',
 
     /*
      * The maximum file size of an item in bytes. Adding a file
@@ -40,7 +40,7 @@ return [
         /*
          * The domain that should be prepended when generating urls.
          */
-        'domain' => 'https://xxxxxxx.s3.amazonaws.com',
+        'domain' => 'https://s3.amazonaws.com/dev.foomatic.org',
     ],
 
     'remote' => [

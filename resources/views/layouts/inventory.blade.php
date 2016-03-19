@@ -16,11 +16,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="/css/sweetalert.css">
+<style>
 
+    .buffer {
+        margin-top: 65px;
+    }
+
+</style>
 @stack('style-after')
 
 </head>
 <body>
+
+@if (Auth::check())
+@include('layouts.logged-in-nav')
+@endif
 
 @yield('content')
 

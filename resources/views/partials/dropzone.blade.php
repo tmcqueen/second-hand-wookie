@@ -26,3 +26,14 @@
         Drag/Drop files here to upload
     </div>
 </form>
+<form   method="POST"
+        action="{{$target}}"
+        accept-charset="UTF-8"
+        enctype="multipart/form-data">
+    {{csrf_field()}}
+    {{method_field('patch')}}
+
+    <input type="file" name="file">
+    <button>Submit</button>
+</form>
+<div style="padding-top: 50px;"></div>
