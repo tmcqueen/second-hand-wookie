@@ -6,7 +6,7 @@
 
     <div id="links">
         @foreach($images as $image)
-        <a href="{{$image->getUrl()}}" title="{{$image->name}}" data-gallery>
+        <a href="{{$image->getUrl()}}" title="{{$image->name}}" {{$gallery or ''}}>
             <img src="{{$image->getUrl('thumb')}}">
         </a>
         @endforeach

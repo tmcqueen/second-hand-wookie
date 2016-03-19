@@ -56,6 +56,7 @@
                     'asset' => $asset,
                     'collection' => 'images',
                     'type' => 'Images',
+                    'gallery' => 'data-gallery',
                 ])
 
                 @include('partials.gallery', [
