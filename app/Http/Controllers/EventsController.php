@@ -10,6 +10,8 @@ Use Carbon\Carbon;
 
 use App\Event;
 
+use Auth;
+
 class EventsController extends Controller
 {
 
@@ -80,6 +82,7 @@ class EventsController extends Controller
         $input['start'] = $start;
         $input['end'] = $end;
 
+        $input['organizer'] = Auth::user()->id;
 
         Event::create($input);
 

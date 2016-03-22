@@ -9,7 +9,7 @@ class Event extends Model
     protected $fillable = [
         'name', 'start', 'end', 'allday', 'title',
         'location', 'slug', 'description',
-        'latitude', 'longitude'
+        'latitude', 'longitude', 'organizer'
     ];
 
     public function getRouteKeyName() {
