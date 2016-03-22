@@ -68,7 +68,7 @@
                         showLoaderOnConfirm: true,
                     },
                     function() {
-                        var url = "http://localhost:8000/events/"+calEvent.slug;
+                        var url = "/events/"+calEvent.slug;
                         console.log(url);
                         window.location.href = url;
                     });
