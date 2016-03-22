@@ -15,7 +15,6 @@
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::get('/about', ['as' => 'about', 'uses' => 'HomeController@about']);
 Route::get('/contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
-Route::get('/events', ['as' => 'events', 'uses' => 'HomeController@events']);
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +29,9 @@ Route::get('/events', ['as' => 'events', 'uses' => 'HomeController@events']);
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('@{user}', ['uses' => 'PublicProfileController@index']);
+    Route::resource('events', 'EventsController', [
+        'parameters' => 'singular',
+    ]);
     Route::resource('inventory', 'InventoryController', [
         'parameters' => ['inventory' => 'asset'],
     ]);

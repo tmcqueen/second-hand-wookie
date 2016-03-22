@@ -114,4 +114,8 @@ body {
 nav.navbar.shrink {
   min-height: 35px;
 }
+
+.buffer {
+    margin-top: 65px;
+}
 /*# sourceMappingURL=main.css.map */

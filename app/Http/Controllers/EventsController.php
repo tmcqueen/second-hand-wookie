@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+Use Carbon\Carbon;
+
+use App\Event;
+
 class EventsController extends Controller
 {
     /**
@@ -13,9 +17,19 @@ class EventsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->wantsJson()) {
+
+            $events = Event::where('start', '>', $request->start)
+                ->where('end', '<=', $request->end)
+                ->get();
+
+
+            return response()->json($events);
+        }
+
+        return view('events.index');
     }
 
     /**
@@ -25,7 +39,12 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        $today = Carbon::today();
+
+        return view('events.create', [
+            'start' => $today->format('m/d/Y g:i A'),
+            'end' => $today->addDay()->format('m/d/Y g:i A'),
+        ]);
     }
 
     /**
@@ -36,7 +55,28 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->input();
+        // dd($input);
+        $start_orig = Carbon::parse($input['start']);
+        $start = $start_orig;
+        $end = '';
+
+        if ($request->allday) {
+            // Seconds since midnight
+            $s = $start_orig->secondsSinceMidnight();
+            $start = $start_orig->subSeconds($s)->toAtomString();
+            $end = $start_orig->addSeconds(86399)->toAtomString();
+        }
+        else {
+            $end = Carbon::parse($input['end'])->toAtomString();
+        }
+        $input['start'] = $start;
+        $input['end'] = $end;
+
+
+        Event::create($input);
+
+        return view('events.index');
     }
 
     /**
@@ -45,9 +85,9 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        return view('events.show', ['event' => $event]);
     }
 
     /**

@@ -52,19 +52,28 @@ elixir(function(mix) {
     mix.copy('resources/assets/libs/font-awesome/fonts', 'public/fonts');
     mix.copy('resources/assets/css/markdown.css', 'public/css');
 
+    var libs = 'resources/assets/libs';
 
+    mix.copy(libs + '/vue/dist/vue.min.js', 'public/js');
 
-    mix.copy('resources/assets/libs/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css', 'public/css');
-    mix.copy('resources/assets/libs/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js', 'public/js');
-    mix.copy('resources/assets/libs/Bootstrap-Image-Gallery/img', 'public/img');
+    mix.copy(libs + '/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css', 'public/css');
+    mix.copy(libs + '/Bootstrap-Image-Gallery/js/bootstrap-image-gallery.min.js', 'public/js');
+    mix.copy(libs + '/Bootstrap-Image-Gallery/img', 'public/img');
 
-    mix.copy('resources/assets/libs/blueimp-gallery/css/blueimp-gallery.min.css', 'public/css');
-    mix.copy('resources/assets/libs/blueimp-gallery/js/jquery.blueimp-gallery.min.js', 'public/js');
-    mix.copy('resources/assets/libs/blueimp-gallery/img', 'public/img');
+    mix.copy(libs + '/blueimp-gallery/css/blueimp-gallery.min.css', 'public/css');
+    mix.copy(libs + '/blueimp-gallery/js/jquery.blueimp-gallery.min.js', 'public/js');
+    mix.copy(libs + '/blueimp-gallery/img', 'public/img');
 
-    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/dropzone/dist/min/dropzone.min.css', 'public/css');
-    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/dropzone/dist/min/dropzone.min.js', 'public/js');
+    mix.copy(libs + '/dropzone/dist/min/dropzone.min.css', 'public/css');
+    mix.copy(libs + '/dropzone/dist/min/dropzone.min.js', 'public/js');
 
-    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/sweetalert/dist/sweetalert.css', 'public/css');
-    mix.copy('/home/timm/Foomatic/site/resources/assets/libs/sweetalert/dist/sweetalert.min.js', 'public/js');
+    mix.copy(libs + '/sweetalert/dist/sweetalert.css', 'public/css');
+    mix.copy(libs + '/sweetalert/dist/sweetalert.min.js', 'public/js');
+
+    mix.copy(libs + '/leaflet/dist/leaflet.css', 'public/css');
+    mix.copy(libs + '/leaflet/dist/leaflet.js', 'public/js');
+    mix.copy(libs + '/leaflet/dist/images', 'public/img');
+
+    mix.copy(libs + '/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css', 'public/css');
+    mix.copy(libs + '/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', 'public/js');
 });

@@ -15,7 +15,7 @@
             <li id="home" class="{{Request::is('/') ? 'active' : '' }}">{{link_to_route('home', 'Home')}}</li>
             <li id="about" class="{{Request::is('about') ? 'active' : '' }}">{{link_to_route('about', 'About')}}</li>
             <li id="contact" class="{{Request::is('contact') ? 'active' : '' }}">{{link_to_route('contact', 'Contact')}}</li>
-            <li id="events" class="{{Request::is('events') ? 'active' : '' }}">{{link_to_route('events', 'Events')}}</li>
+            <li id="events" class="{{Request::is('events') ? 'active' : '' }}">{{link_to_route('events.index', 'Events')}}</li>
             <li id="donate" class="{{Request::is('donate') ? 'active' : '' }}">{{link_to_route('donate.index', 'Donate')}}</li>
             <li id="inventory" class="{{Request::is('inventory') ? 'active' : '' }}">{{link_to_route('inventory.index', 'Inventory')}}</li>
         </ul>
