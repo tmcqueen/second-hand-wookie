@@ -76,6 +76,10 @@
                             <td>Last Updated On:</td>
                             <td>{{$event->updated_at->toCookieString()}}</td>
                         </tr>
+                        <tr>
+                            <td>Organized By:</td>
+                            <td>{{$event->organizer->name}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

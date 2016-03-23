@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->datetime('start');
             $table->datetime('end');
-            $table->integer('organizer')->unsigned()->index();
+            $table->integer('organizer_id')->unsigned()->index();
             $table->string('location')->nullable();
             $table->boolean('allday')->default(false);
             $table->string('latitude')->nullable();
