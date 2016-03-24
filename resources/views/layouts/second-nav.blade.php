@@ -21,7 +21,7 @@
         </ul>
         <ul class="nav navbar-nav pull-right">
             @if (Auth::check())
-            <li id="login">{{link_to_route('me.settings.index', 'My Profile')}}</li>
+            <li id="login">{{link_to_route('me', 'My Profile')}}</li>
             <li class="login">{{link_to('/logout', 'Log Out')}}</li>
             @else
             <li id="login">{{link_to('/login', 'Log in')}}</li>

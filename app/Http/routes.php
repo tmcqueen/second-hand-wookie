@@ -12,9 +12,6 @@
 |
 */
 
-Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('/about', ['as' => 'about', 'uses' => 'HomeController@about']);
-Route::get('/contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +25,9 @@ Route::get('/contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
 */
 
 Route::group(['middleware' => ['web']], function () {
+    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+    Route::get('/about', ['as' => 'about', 'uses' => 'HomeController@about']);
+    Route::get('/contact', ['as' => 'contact', 'uses' => 'HomeController@contact']);
     Route::get('@{user}', ['uses' => 'PublicProfileController@index']);
     Route::resource('events', 'EventsController', [
         'parameters' => 'singular',
@@ -45,8 +45,9 @@ Route::group(['middleware' => ['web']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
-    Route::get('/me', ['uses' => 'PublicProfileController@index']);
-    Route::resource('/me/settings', 'SettingsController');
+    Route::get('/me', ['as' => 'me', 'uses' => 'SettingsController@index']);
+    Route::get('/me/settings/{section?}', ['as' => 'me.settings', 'uses' => 'SettingsController@show']);
+    Route::patch('/me/settings', ['as' => 'me.update', 'uses' => 'SettingsController@update']);
 });
 
 Route::get('/changelog', function() {

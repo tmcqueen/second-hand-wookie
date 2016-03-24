@@ -16,7 +16,7 @@
             <li><a href="#">Blah</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-            <li id="login">{{link_to_route('me.settings.index', 'My Profile')}}</li>
+            <li id="login">{{link_to_route('me', 'My Profile')}}</li>
             <li class="login">{{link_to('/logout', 'Log Out')}}</li>
         </ul>
         </div>
