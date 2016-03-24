@@ -22,6 +22,7 @@ class CreateMediaTable extends Migration
             $table->text('manipulations');
             $table->text('custom_properties');
             $table->unsignedInteger('order_column')->nullable();
+            $table->string('short_url')->nullable();
             $table->timestamps();
         });
     }

@@ -24,24 +24,22 @@ class SettingsController extends Controller
 
     public function update(Request $request)
     {
-        if ($this->updateProfilePhoto($request)) return back();
+        $this->updateProfilePhoto($request);
 
         $input = $request->only(['name', 'username', 'email']);
         $request->user()->update($input);
 
+        if ($request->wantsJson()) {
+            return response()->json(['success']);
+        }
         return redirect()->route('me');
     }
 
     public function updateProfilePhoto(Request $request) {
         if ($request->hasFile('file') && $request->imageType == 'profile photo') {
-
-            // save image
             $file = $request->user()->attachFile($request->file);
-            dd($file);
-            // set image as default profile photo
-
-            return true;
+            $request->user()->avatar_id = $file->id;
+            $request->user()->save();
         }
-        return false;
     }
 }

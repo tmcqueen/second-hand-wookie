@@ -53,12 +53,12 @@ class User extends Ardent implements
 
     public function registerMediaConversions()
     {
-        $this->addMediaConversion('thumb')
+        $this->addMediaConversion('avatar')
              ->setManipulations([
-                 'w'  => 140,
-                 'h'  => 140,
+                 'w'  => 200,
+                 'h'  => 200,
                  'fm' => 'png'])
-             ->performOnCollections('images', 'documents')
+             ->performOnCollections('avatars')
              ->nonQueued();
     }
 

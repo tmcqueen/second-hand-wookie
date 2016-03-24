@@ -26,7 +26,7 @@
 
                 <div class="col-md-4">
                     @if (! $user->avatar == null)
-                        <img src="{{$user->avatar->getUrl('thumb')}}" class="img-circle">
+                        <img src="{{$user->avatar->getUrl('avatar')}}" class="img-circle">
                     @endif
                     <!--<span class="thumbnail">
                     </span>-->
