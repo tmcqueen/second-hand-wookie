@@ -74,6 +74,7 @@ class User extends Ardent implements
     }
 
     private function queueHistoryMessage($message) {
+        if (! Auth::user()) return; // ToDo: Make this better
         $description = sprintf($message, $this->name);
         dispatch(new SaveUserHistory(Auth::user(), $description));
     }
