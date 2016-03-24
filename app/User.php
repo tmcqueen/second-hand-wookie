@@ -10,15 +10,23 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Http\UploadedFile;
 use LaravelArdent\Ardent\Ardent;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\Media;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use App\Jobs\SaveUserHistory;
+use Auth;
 
 class User extends Ardent implements
     AuthenticatableContract,
     AuthorizableContract,
-    CanResetPasswordContract
+    CanResetPasswordContract,
+    HasMediaConversions
 {
-    use Authenticatable, Authorizable, CanResetPassword, HasRoles;
+    use Authenticatable, Authorizable, CanResetPassword,
+        HasRoles, HasMediaTrait;
 
     protected $fillable = [
         'name', 'email', 'password', 'username',
@@ -32,6 +40,10 @@ class User extends Ardent implements
       'password'    => 'required|min:6',
     ];
 
+    public static $relationsData = [
+      'avatar' => [self::BELONGS_TO, Media::class, 'avatar_id'],
+    ];
+
     public static $passwordAttributes = ['password'];
     public $autoHashPasswordAttributes = true;
 
@@ -39,7 +51,46 @@ class User extends Ardent implements
         'password', 'remember_token',
     ];
 
+    public function registerMediaConversions()
+    {
+        $this->addMediaConversion('thumb')
+             ->setManipulations([
+                 'w'  => 140,
+                 'h'  => 140,
+                 'fm' => 'png'])
+             ->performOnCollections('images', 'documents')
+             ->nonQueued();
+    }
+
+    public function attachFile(UploadedFile $file) {
+        $mime = $file->getClientMimeType();
+        return $this->addMedia($file)
+            ->withCustomProperties(['mime-type' => $mime])
+            ->toCollection('avatars');
+    }
+
     public function getRouteKeyName() {
         return 'username';
+    }
+
+    private function queueHistoryMessage($message) {
+        $description = sprintf($message, $this->name);
+        dispatch(new SaveUserHistory(Auth::user(), $description));
+    }
+
+    public function afterSave() {
+        $this->queueHistoryMessage("%s's profile was saved");
+    }
+
+    public function afterCreate() {
+        $this->queueHistoryMessage("%s's profile was created");
+    }
+
+    public function afterUpdate() {
+        $this->queueHistoryMessage("%s's profile was updated");
+    }
+
+    public function afterDelete() {
+        $this->queueHistoryMessage("%s's profile was deleted");
     }
 }

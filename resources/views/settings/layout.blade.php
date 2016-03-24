@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>Document</title>
 
-    @stack('styles-before')
+    @stack('style-before')
     <link rel="stylesheet" type="text/css" href="/css/app.css">
     @stack('styles-after')
 </head>

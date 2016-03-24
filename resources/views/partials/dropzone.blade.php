@@ -22,6 +22,9 @@
         class="dropzone needsclick dz-clickable">
     {{csrf_field()}}
     {{method_field('patch')}}
+
+    <input type="hidden" name="imageType" value="{{$imageType}}">
+
     <div class="dz-message needsclick">
         Drag/Drop files here to upload
     </div>
@@ -33,6 +36,7 @@
     {{csrf_field()}}
     {{method_field('patch')}}
 
+    <input type="hidden" name="imageType" value="{{$imageType}}">
     <input type="file" name="file">
     <button>Submit</button>
 </form>
