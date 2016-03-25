@@ -156,6 +156,7 @@ return [
         Spatie\Backup\BackupServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Spatie\Menu\Laravel\MenuServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
@@ -220,6 +221,7 @@ return [
         'GlideImage' => Spatie\Glide\GlideImageFacade::class,
         'InImage'   => Intervention\Image\Facades\Image::class,
         'Alert'     => UxWeb\SweetAlert\SweetAlert::class,
+        'Menu'      => Spatie\Menu\Laravel\MenuFacade::class,
     ],
 
 ];

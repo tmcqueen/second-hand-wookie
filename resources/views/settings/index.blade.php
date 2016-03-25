@@ -17,10 +17,10 @@
 
 </script>
 
-
 @endpush
 
 @section('content')
+
 
 <div class="container-fluid" id="app">
 
@@ -30,6 +30,11 @@
             <div class="page-header">
                 <h2>{{$user->name}} <small>Settings</small></h2>
             </div>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    {!!$menu!!}
+                </div>
+            </nav>
             <ul class="nav nav-tabs">
                 <li role="presentation" v-bind:class="[section == 'basic' ? 'active' : '']">
                     {{link_to_route('me.settings', 'Basic', ['section' => 'basic'])}}

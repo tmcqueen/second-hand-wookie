@@ -60,6 +60,7 @@ Route::group([
     'middleware' => ['web', 'auth'],
     'namespace' => 'Admin',
 ], function() {
+    Route::get('/', ['as' => 'admin', 'uses' => 'AdminController@index']);
     Route::resource('users', 'AdminUsersController', [
         'parameters' => 'singular',
         'middleware' => 'can:admin.users']);

@@ -13,39 +13,39 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     // mix.sass('app.scss');
-    mix.styles([
-        'libs/bootstrap/dist/css/bootstrap.css',
-        'libs/bootstrap/dist/css/bootstrap-theme.css',
-        'libs/font-awesome/css/font-awesome.css',
-    ], 'public/css/app.css', 'resources/assets');
+    // mix.styles([
+    //     'libs/bootstrap/dist/css/bootstrap.css',
+    //     'libs/bootstrap/dist/css/bootstrap-theme.css',
+    //     'libs/font-awesome/css/font-awesome.css',
+    // ], 'public/css/app.css', 'resources/assets');
 
-    mix.styles(['main.css'], 'public/css/main.css', 'resources/assets/css');
+    // mix.styles(['main.css'], 'public/css/main.css', 'resources/assets/css');
 
-    mix.styles([
-        'libs/bootstrap/dist/css/bootstrap.css',
-        'libs/bootstrap/dist/css/bootstrap-theme.css',
-        'libs/fullcalendar/dist/fullcalendar.css',
-        'css/events.css',
-    ], 'public/css/events.css', 'resources/assets');
+    // mix.styles([
+    //     'libs/bootstrap/dist/css/bootstrap.css',
+    //     'libs/bootstrap/dist/css/bootstrap-theme.css',
+    //     'libs/fullcalendar/dist/fullcalendar.css',
+    //     'css/events.css',
+    // ], 'public/css/events.css', 'resources/assets');
 
-    mix.copy([
-        'resources/assets/libs/jquery/dist/jquery.js',
-        'resources/assets/libs/moment/moment.js',
-        'resources/assets/libs/bootstrap/dist/js/bootstrap.js',
-        'resources/assets/libs/fullcalendar/dist/fullcalendar.js',
-    ], 'public/js');
+    // mix.copy([
+    //     'resources/assets/libs/jquery/dist/jquery.js',
+    //     'resources/assets/libs/moment/moment.js',
+    //     'resources/assets/libs/bootstrap/dist/js/bootstrap.js',
+    //     'resources/assets/libs/fullcalendar/dist/fullcalendar.js',
+    // ], 'public/js');
 
-    mix.scripts([
-        //'jquery/dist/jquery.js',
-    ], 'public/js/events.js', 'resources/assets/libs');
+    // mix.scripts([
+    //     //'jquery/dist/jquery.js',
+    // ], 'public/js/events.js', 'resources/assets/libs');
 
-    mix.scripts([
-        'libs/jquery/dist/jquery.js',
-        //'libs/vue/dist/vue.js',
-        'libs/bootstrap/dist/js/bootstrap.js',
-    ], 'public/js/app.js', 'resources/assets');
+    // mix.scripts([
+    //     'libs/jquery/dist/jquery.js',
+    //     //'libs/vue/dist/vue.js',
+    //     'libs/bootstrap/dist/js/bootstrap.js',
+    // ], 'public/js/app.js', 'resources/assets');
 
-    mix.scripts(['main.js'], 'public/js/main.js', 'resources/assets/js');
+    // mix.scripts(['main.js'], 'public/js/main.js', 'resources/assets/js');
 
     mix.copy('resources/assets/libs/bootstrap/dist/fonts', 'public/fonts');
     mix.copy('resources/assets/libs/bootstrap/dist/css/bootstrap.css', 'public/css');
@@ -76,4 +76,14 @@ elixir(function(mix) {
 
     mix.copy(libs + '/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css', 'public/css');
     mix.copy(libs + '/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js', 'public/js');
+
+    mix.copy(libs + '/font-awesome/css/', 'public/css');
+    mix.copy(libs + '/font-awesome/fonts/', 'public/fonts');
+
+    mix.copy(libs + '/Ionicons/css/', 'public/css');
+    mix.copy(libs + '/Ionicons/fonts/', 'public/fonts');
+
+    mix.copy(libs + '/AdminLTE/dist/css/', 'public/css');
+    mix.copy(libs + '/AdminLTE/dist/img/', 'public/img');
+    mix.copy(libs + '/AdminLTE/dist/js/', 'public/js');
 });
